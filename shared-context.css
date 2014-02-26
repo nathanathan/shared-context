@@ -1,0 +1,32 @@
+/* CSS declarations go here */
+.non-terminal {
+    padding-left: .2em;
+    padding-right: .2em;
+}
+.non-terminal.highlighted {
+    background-color: yellow;
+}
+.non-terminal {
+    border-bottom: 1px solid purple;
+}
+.name {
+    color: blue;
+}
+.name:before {
+    content: '<';
+}
+.name:after {
+    content: '>';
+}
+.non-terminal-view {
+    color: white;
+    position: fixed;
+    top: 0; left: 50%; right:0; bottom: 0;
+    background-color: teal;
+}
+.produced-text {
+    max-width: 50%;
+}
+.non-terminal.selected {
+    background-color: orange;
+}
