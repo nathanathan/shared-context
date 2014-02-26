@@ -1,0 +1,49 @@
+<head>
+  <title>shared-context</title>
+</head>
+
+<body>
+  <div class="produced-text">{{> start}}</div>
+  <div class="non-terminal-view">{{> nonTerminal}}</div>
+</body>
+
+<template name="start">
+    {{#with root}}
+        {{> production}}
+    {{/with}}
+</template>
+
+<template name="production">
+    <span class="production {{#if name}}non-terminal{{/if}}">
+    {{#if value}}
+            {{value}}
+    {{else}}
+        {{#each productions}}
+            {{> production}}
+        {{else}}
+            {{#if name}}
+                <span class="name">{{name}}</span>
+            {{/if}}
+        {{/each}}
+    {{/if}}
+    </span>
+</template>
+
+<template name="nonTerminal">
+    {{#with nonTerminal}}
+    <h2>{{name}}</h2>
+    {{#each options}}
+        <div class="option">
+        {{#each components}}
+            {{#if name}}
+                <span class="name">{{name}}</span>
+            {{else}}
+               {{value}}
+            {{/if}}
+        {{/each}}
+        </div>
+    {{/each}}
+    <input id="option-text" />
+    <button class="add-option">Add option</button>
+    {{/with}}
+</template>
